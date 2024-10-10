@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RA-Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Hostel Resident Assistant Tracker</h1>
+    <form id="qrForm" class="p-3 bg-light rounded shadow">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">School Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your school email" required>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+      </div>
+      <div class="mb-3">
+        <label for="hostel" class="form-label">Hostel</label>
+        <select class="form-select" id="hostel" required>
+          <option value="">Select your hostel</option>
+          <option value="EDC">EDC</option>
+          <option value="Emerald">Emerald</option>
+          <option value="Amethyst">Amethyst</option>
+          <option value="Faith">Faith</option>
+          <option value="POD_living">POD living</option>
+          <option value="Cooperative_male">Cooperative male</option>
+          <option value="Cooperative_queens">Cooperative queens</option>
+          <option value="Redwood">Redwood</option>
+          <option value="Trinity">Trinity</option>
+          <option value="Cedar">Cedar</option>
+          <option value="Pearl">Pearl</option>
+          <option value="Trezadel">Trezadel</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Generate QR Code</button>
+    </form>
+    <div id="qrModal" style="display: none;">
+        <div id="modalContent">
+            <span id="closeModal" style="cursor: pointer;">&times;</span>
+            <h2>QR Code</h2>
+            <div id="qrcode"></div>
+        </div>
+    </div>
+
+    <style>
+    /* Basic styles for modal */
+    #qrModal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #modalContent {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    #closeModal {
+        float: right;
+        font-size: 20px;
+    }
+    </style>
+    <div class="text-center mt-4">
+      <div id="error-message" style="color: red;"></div>
+      <div id="qrcode"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

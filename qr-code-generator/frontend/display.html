@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RA Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .info-item {
+            margin-bottom: 15px;
+        }
+        .info-item span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Scanned Information</h2>
+        <div class="info-item"><span>Name:</span> <span id="name"></span></div>
+        <div class="info-item"><span>Email:</span> <span id="email"></span></div>
+        <div class="info-item"><span>Phone:</span> <span id="phone"></span></div>
+        <div class="info-item"><span>Hostel:</span> <span id="hostel"></span></div>
+        <div class="info-item"><span>Resident Assistant:</span> <span id="raName"></span></div>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                name: params.get('name'),
+                email: params.get('email'),
+                phone: params.get('phone'),
+                hostel: params.get('hostel'),
+                raName: params.get('raName')
+            };
+        }
+
+        const data = getQueryParams();
+        document.getElementById('name').textContent = data.name;
+        document.getElementById('email').textContent = data.email;
+        document.getElementById('phone').textContent = data.phone;
+        document.getElementById('hostel').textContent = data.hostel;
+        document.getElementById('raName').textContent = data.raName;
+    </script>
+</body>
+</html>
